@@ -1,0 +1,57 @@
+html {
+  font-family: 'AlibabaPuHuiTi';
+  text-rendering: optimizeLegibility;
+  box-sizing: border-box;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+img {
+  content: normal;
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0 !important;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./fonts/Poppins/Poppins-Regular.ttf') format('truetype'),
+    url('./fonts/Poppins/Poppins-Regular.otf') format('otf'),
+    url('./fonts/Poppins/Poppins-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Poppins-Bold';
+  src: url('./fonts/Poppins/Poppins-Black.ttf') format('truetype'),
+    url('./fonts/Poppins/Poppins-Black.otf') format('otf'),
+    url('./fonts/Poppins/Poppins-Black.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'AlibabaPuHuiTi';
+  src: url('./fonts/AlibabaPuHuiTi-2-55-Regular.ttf') format('truetype'),
+    url('./fonts/AlibabaPuHuiTi-2-55-Regular.otf') format('otf'),
+    url('./fonts/AlibabaPuHuiTi-2-55-Regular.woff') format('woff');
+}

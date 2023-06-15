@@ -1,0 +1,389 @@
+[
+    {
+        "inputs": [{"internalType": "address", "name": "_cjcTokenAddress", "type": "address"}],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{"indexed": false, "internalType": "address", "name": "account", "type": "address"}],
+        "name": "Paused",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": true, "internalType": "address", "name": "nftAddress", "type": "address"},
+            {"indexed": true, "internalType": "uint256", "name": "tokenId", "type": "uint256"},
+            {"indexed": true, "internalType": "address", "name": "to", "type": "address"},
+            {"indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256"}
+        ],
+        "name": "RewardClaimed",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": true, "internalType": "bytes32", "name": "role", "type": "bytes32"},
+            {"indexed": true, "internalType": "bytes32", "name": "previousAdminRole", "type": "bytes32"},
+            {"indexed": true, "internalType": "bytes32", "name": "newAdminRole", "type": "bytes32"}
+        ],
+        "name": "RoleAdminChanged",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": true, "internalType": "bytes32", "name": "role", "type": "bytes32"},
+            {"indexed": true, "internalType": "address", "name": "account", "type": "address"},
+            {"indexed": true, "internalType": "address", "name": "sender", "type": "address"}
+        ],
+        "name": "RoleGranted",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": true, "internalType": "bytes32", "name": "role", "type": "bytes32"},
+            {"indexed": true, "internalType": "address", "name": "account", "type": "address"},
+            {"indexed": true, "internalType": "address", "name": "sender", "type": "address"}
+        ],
+        "name": "RoleRevoked",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{"indexed": false, "internalType": "address", "name": "account", "type": "address"}],
+        "name": "Unpaused",
+        "type": "event"
+    },
+    {
+        "inputs": [],
+        "name": "DEFAULT_ADMIN_ROLE",
+        "outputs": [{"internalType": "bytes32", "name": "", "type": "bytes32"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "OPERATOR_ROLE",
+        "outputs": [{"internalType": "bytes32", "name": "", "type": "bytes32"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "accPerShare",
+        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "uint256", "name": "_timeInterval", "type": "uint256"}],
+        "name": "calculateWithdrawFee",
+        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "cjcToken",
+        "outputs": [{"internalType": "contract IERC20", "name": "", "type": "address"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {"inputs": [], "name": "claimAllReward", "outputs": [], "stateMutability": "nonpayable", "type": "function"},
+    {
+        "inputs": [{"internalType": "uint256", "name": "positionIndex", "type": "uint256"}],
+        "name": "claimRewardByPosition",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "uint256", "name": "_amount", "type": "uint256"}],
+        "name": "distributeAwards",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "address", "name": "_nftAddress", "type": "address"}],
+        "name": "getNftStakingAllowed",
+        "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "address", "name": "_owner", "type": "address"}],
+        "name": "getOwnerAllPositionInfos",
+        "outputs": [
+            {
+                "components": [
+                    {"internalType": "address", "name": "nftAddress", "type": "address"},
+                    {"internalType": "uint256", "name": "tokenId", "type": "uint256"},
+                    {"internalType": "uint256", "name": "number", "type": "uint256"},
+                    {"internalType": "uint256", "name": "power", "type": "uint256"},
+                    {"internalType": "uint256", "name": "rewardsDebt", "type": "uint256"},
+                    {"internalType": "uint256", "name": "claimTimestamp", "type": "uint256"}
+                ],
+                "internalType": "struct SoulStaker.Position[]",
+                "name": "positionInfos",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "address", "name": "_owner", "type": "address"}],
+        "name": "getOwnerPositions",
+        "outputs": [{"internalType": "uint256[]", "name": "", "type": "uint256[]"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "uint256", "name": "positionIndex", "type": "uint256"}],
+        "name": "getRewardInfoByPosition",
+        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "bytes32", "name": "role", "type": "bytes32"}],
+        "name": "getRoleAdmin",
+        "outputs": [{"internalType": "bytes32", "name": "", "type": "bytes32"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "address", "name": "_owner", "type": "address"},
+            {"internalType": "address", "name": "_nftAddress", "type": "address"},
+            {"internalType": "uint256", "name": "_nftId", "type": "uint256"}
+        ],
+        "name": "getTrackPositionId",
+        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "address", "name": "_owner", "type": "address"},
+            {"internalType": "address", "name": "_nftAddress", "type": "address"},
+            {"internalType": "uint256", "name": "_nftId", "type": "uint256"}
+        ],
+        "name": "getTrackPositionInfo",
+        "outputs": [
+            {
+                "components": [
+                    {"internalType": "address", "name": "nftAddress", "type": "address"},
+                    {"internalType": "uint256", "name": "tokenId", "type": "uint256"},
+                    {"internalType": "uint256", "name": "number", "type": "uint256"},
+                    {"internalType": "uint256", "name": "power", "type": "uint256"},
+                    {"internalType": "uint256", "name": "rewardsDebt", "type": "uint256"},
+                    {"internalType": "uint256", "name": "claimTimestamp", "type": "uint256"}
+                ],
+                "internalType": "struct SoulStaker.Position",
+                "name": "info",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getUserAllReward",
+        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "uint256", "name": "_index", "type": "uint256"}],
+        "name": "getWithdrawRewardFee",
+        "outputs": [
+            {
+                "components": [
+                    {"internalType": "uint256", "name": "timeInterval", "type": "uint256"},
+                    {"internalType": "uint256", "name": "fee", "type": "uint256"}
+                ],
+                "internalType": "struct SoulStaker.WithdrawRewardFee",
+                "name": "fee",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "bytes32", "name": "role", "type": "bytes32"},
+            {"internalType": "address", "name": "account", "type": "address"}
+        ],
+        "name": "grantRole",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "bytes32", "name": "role", "type": "bytes32"},
+            {"internalType": "address", "name": "account", "type": "address"}
+        ],
+        "name": "hasRole",
+        "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "lastDistributionTime",
+        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "address", "name": "", "type": "address"}],
+        "name": "nftStakingAllowed",
+        "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "address", "name": "", "type": "address"},
+            {"internalType": "address", "name": "", "type": "address"},
+            {"internalType": "uint256[]", "name": "", "type": "uint256[]"},
+            {"internalType": "uint256[]", "name": "", "type": "uint256[]"},
+            {"internalType": "bytes", "name": "", "type": "bytes"}
+        ],
+        "name": "onERC1155BatchReceived",
+        "outputs": [{"internalType": "bytes4", "name": "", "type": "bytes4"}],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "address", "name": "", "type": "address"},
+            {"internalType": "address", "name": "", "type": "address"},
+            {"internalType": "uint256", "name": "", "type": "uint256"},
+            {"internalType": "uint256", "name": "", "type": "uint256"},
+            {"internalType": "bytes", "name": "", "type": "bytes"}
+        ],
+        "name": "onERC1155Received",
+        "outputs": [{"internalType": "bytes4", "name": "", "type": "bytes4"}],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "paused",
+        "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "bytes32", "name": "role", "type": "bytes32"},
+            {"internalType": "address", "name": "account", "type": "address"}
+        ],
+        "name": "renounceRole",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "bytes32", "name": "role", "type": "bytes32"},
+            {"internalType": "address", "name": "account", "type": "address"}
+        ],
+        "name": "revokeRole",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "address", "name": "_nftAddress", "type": "address"},
+            {"internalType": "bool", "name": "flag", "type": "bool"}
+        ],
+        "name": "setNftStakingAllowed",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "uint256", "name": "_index", "type": "uint256"},
+            {
+                "components": [
+                    {"internalType": "uint256", "name": "timeInterval", "type": "uint256"},
+                    {"internalType": "uint256", "name": "fee", "type": "uint256"}
+                ],
+                "internalType": "struct SoulStaker.WithdrawRewardFee",
+                "name": "_fee",
+                "type": "tuple"
+            }
+        ],
+        "name": "setWithdrawRewardFee",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "address", "name": "owner", "type": "address"},
+            {"internalType": "address", "name": "nftAddr", "type": "address"},
+            {"internalType": "uint256", "name": "id", "type": "uint256"},
+            {"internalType": "uint256", "name": "amount", "type": "uint256"}
+        ],
+        "name": "stakingNft",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "bytes4", "name": "interfaceId", "type": "bytes4"}],
+        "name": "supportsInterface",
+        "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "totalDistributed",
+        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "totalPower",
+        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "address", "name": "_recipient", "type": "address"},
+            {"internalType": "uint256", "name": "_amount", "type": "uint256"}
+        ],
+        "name": "withdraw",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "address", "name": "to", "type": "address"},
+            {"internalType": "address", "name": "nftAddr", "type": "address"},
+            {"internalType": "uint256", "name": "id", "type": "uint256"},
+            {"internalType": "uint256", "name": "amount", "type": "uint256"}
+        ],
+        "name": "withdrawNFT",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]

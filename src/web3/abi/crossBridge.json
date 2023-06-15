@@ -1,0 +1,180 @@
+[
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": true, "internalType": "address", "name": "ownerAddr", "type": "address"},
+            {"indexed": true, "internalType": "address", "name": "token20Addr", "type": "address"},
+            {"indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256"}
+        ],
+        "name": "ExtractEvent",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": true, "internalType": "address", "name": "previousOwner", "type": "address"},
+            {"indexed": true, "internalType": "address", "name": "newOwner", "type": "address"}
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": true, "internalType": "address", "name": "fromAddr", "type": "address"},
+            {"indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256"},
+            {"indexed": true, "internalType": "address", "name": "toAddr", "type": "address"},
+            {"indexed": true, "internalType": "address", "name": "tokenAddress", "type": "address"},
+            {"indexed": false, "internalType": "string", "name": "chainName", "type": "string"}
+        ],
+        "name": "ReceiveEvent",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": true, "internalType": "string", "name": "txId", "type": "string"},
+            {"indexed": true, "internalType": "address", "name": "fromAddr", "type": "address"},
+            {"indexed": true, "internalType": "address", "name": "toAddr", "type": "address"},
+            {"indexed": false, "internalType": "address", "name": "token20Addr", "type": "address"},
+            {"indexed": false, "internalType": "uint256", "name": "fromAmount", "type": "uint256"}
+        ],
+        "name": "SendEvent",
+        "type": "event"
+    },
+    {
+        "inputs": [],
+        "name": "currentDay",
+        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "uint256", "name": "amount", "type": "uint256"}],
+        "name": "extractToken",
+        "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "address", "name": "token20Addr", "type": "address"},
+            {"internalType": "uint256", "name": "amount", "type": "uint256"}
+        ],
+        "name": "extractToken20",
+        "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [{"internalType": "address", "name": "", "type": "address"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "address", "name": "privilegeAccount", "type": "address"}],
+        "name": "privilegeAccountMap",
+        "outputs": [
+            {
+                "components": [
+                    {"internalType": "bool", "name": "isState", "type": "bool"},
+                    {"internalType": "uint256", "name": "dayMoney", "type": "uint256"},
+                    {"internalType": "uint256", "name": "dayMoneyLimit", "type": "uint256"},
+                    {"internalType": "uint256", "name": "totalMoney", "type": "uint256"}
+                ],
+                "internalType": "struct Privilege.PrivilegeAccountStruct",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "address", "name": "toAddr", "type": "address"},
+            {"internalType": "string", "name": "chainName", "type": "string"}
+        ],
+        "name": "receiveNativeToken",
+        "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "address", "name": "toAddr", "type": "address"},
+            {"internalType": "uint256", "name": "amount", "type": "uint256"},
+            {"internalType": "address", "name": "token20Address", "type": "address"},
+            {"internalType": "string", "name": "chainName", "type": "string"}
+        ],
+        "name": "receiveToken20",
+        "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "address", "name": "addr", "type": "address"}],
+        "name": "removePrivilegeAccount",
+        "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {"inputs": [], "name": "renounceOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function"},
+    {
+        "inputs": [{"internalType": "string", "name": "", "type": "string"}],
+        "name": "sendMap",
+        "outputs": [
+            {"internalType": "address", "name": "fromAddr", "type": "address"},
+            {"internalType": "address", "name": "toAddr", "type": "address"},
+            {"internalType": "address", "name": "token20Addr", "type": "address"},
+            {"internalType": "uint256", "name": "fromAmount", "type": "uint256"}
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "string", "name": "txId", "type": "string"},
+            {"internalType": "address", "name": "fromAddr", "type": "address"},
+            {"internalType": "address payable", "name": "toAddr", "type": "address"},
+            {"internalType": "uint256", "name": "fromAmount", "type": "uint256"}
+        ],
+        "name": "sendToken",
+        "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "string", "name": "txId", "type": "string"},
+            {"internalType": "address", "name": "fromAddr", "type": "address"},
+            {"internalType": "address", "name": "toAddr", "type": "address"},
+            {"internalType": "address", "name": "token20Addr", "type": "address"},
+            {"internalType": "uint256", "name": "fromAmount", "type": "uint256"}
+        ],
+        "name": "sendToken20",
+        "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "address", "name": "addr", "type": "address"},
+            {"internalType": "uint256", "name": "dayMoneyLimit", "type": "uint256"},
+            {"internalType": "uint256", "name": "totalMoney", "type": "uint256"}
+        ],
+        "name": "setPrivilegeAccount",
+        "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "address", "name": "newOwner", "type": "address"}],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]

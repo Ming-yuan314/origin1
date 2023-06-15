@@ -1,0 +1,500 @@
+[
+    {
+        "inputs": [
+            {"internalType": "contract IERC20", "name": "_clink", "type": "address"},
+            {"internalType": "contract ITokenVault", "name": "_tokenVault", "type": "address"}
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "owner_",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "deadline",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint8",
+                "name": "v",
+                "type": "uint8"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "r",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "s",
+                "type": "bytes32"
+            }
+        ],
+        "name": "approveClick",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes[]",
+                "name": "data",
+                "type": "bytes[]"
+            }
+        ],
+        "name": "multicall",
+        "outputs": [
+            {
+                "internalType": "bytes[]",
+                "name": "results",
+                "type": "bytes[]"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": true, "internalType": "address", "name": "owner", "type": "address"},
+            {"indexed": true, "internalType": "uint256", "name": "index", "type": "uint256"},
+            {"indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256"}
+        ],
+        "name": "Borrowed",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": true, "internalType": "address", "name": "owner", "type": "address"},
+            {"indexed": true, "internalType": "uint256", "name": "index", "type": "uint256"}
+        ],
+        "name": "InsuranceExpired",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": true, "internalType": "address", "name": "liquidator", "type": "address"},
+            {"indexed": true, "internalType": "address", "name": "owner", "type": "address"},
+            {"indexed": true, "internalType": "uint256", "name": "index", "type": "uint256"},
+            {"indexed": false, "internalType": "bool", "name": "insured", "type": "bool"}
+        ],
+        "name": "Liquidated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{"indexed": true, "internalType": "address", "name": "newFeeTo", "type": "address"}],
+        "name": "LogFeeTo",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": true, "internalType": "address", "name": "previousOwner", "type": "address"},
+            {"indexed": true, "internalType": "address", "name": "newOwner", "type": "address"}
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": true, "internalType": "address", "name": "owner", "type": "address"},
+            {"indexed": true, "internalType": "uint256", "name": "index", "type": "uint256"}
+        ],
+        "name": "PositionClosed",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": true, "internalType": "address", "name": "owner", "type": "address"},
+            {"indexed": true, "internalType": "uint256", "name": "index", "type": "uint256"}
+        ],
+        "name": "PositionOpened",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": true, "internalType": "address", "name": "owner", "type": "address"},
+            {"indexed": true, "internalType": "uint256", "name": "index", "type": "uint256"},
+            {"indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256"}
+        ],
+        "name": "Repaid",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {"indexed": true, "internalType": "address", "name": "owner", "type": "address"},
+            {"indexed": true, "internalType": "uint256", "name": "index", "type": "uint256"}
+        ],
+        "name": "Repurchased",
+        "type": "event"
+    },
+    {
+        "inputs": [{"internalType": "uint256", "name": "_nftIndex", "type": "uint256"}],
+        "name": "_getNFTValueUSD",
+        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {"inputs": [], "name": "accrue", "outputs": [], "stateMutability": "nonpayable", "type": "function"},
+    {
+        "inputs": [
+            {"internalType": "uint256", "name": "_nftIndex", "type": "uint256"},
+            {"internalType": "uint256", "name": "_amount", "type": "uint256"},
+            {"internalType": "bool", "name": "_useInsurance", "type": "bool"}
+        ],
+        "name": "borrow",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "uint256", "name": "_nftIndex", "type": "uint256"},
+            {"internalType": "address", "name": "_recipient", "type": "address"}
+        ],
+        "name": "claimExpiredInsuranceNFT",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "clink",
+        "outputs": [{"internalType": "contract IERC20", "name": "", "type": "address"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "uint256", "name": "_nftIndex", "type": "uint256"}],
+        "name": "closePosition",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {"inputs": [], "name": "collect", "outputs": [], "stateMutability": "nonpayable", "type": "function"},
+    {
+        "inputs": [],
+        "name": "feeTo",
+        "outputs": [{"internalType": "address", "name": "", "type": "address"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "uint256", "name": "_nftIndex", "type": "uint256"}],
+        "name": "getNFTInfo",
+        "outputs": [
+            {
+                "components": [
+                    {"internalType": "uint256", "name": "index", "type": "uint256"},
+                    {"internalType": "address", "name": "owner", "type": "address"},
+                    {"internalType": "uint256", "name": "nftValueUSD", "type": "uint256"}
+                ],
+                "internalType": "struct NFTVault.NFTInfo",
+                "name": "nftInfo",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "bytes", "name": "data", "type": "bytes"}],
+        "name": "init",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {"internalType": "uint256", "name": "_nftIndex", "type": "uint256"},
+            {"internalType": "address", "name": "_recipient", "type": "address"}
+        ],
+        "name": "liquidate",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "masterContract",
+        "outputs": [{"internalType": "contract NFTVault", "name": "", "type": "address"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "nftContract",
+        "outputs": [{"internalType": "contract IERC721", "name": "", "type": "address"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "openPositionsIndexes",
+        "outputs": [{"internalType": "uint256[]", "name": "", "type": "uint256[]"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [{"internalType": "address", "name": "", "type": "address"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "name": "positionOwner",
+        "outputs": [{"internalType": "address", "name": "", "type": "address"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "priceHelper",
+        "outputs": [{"internalType": "contract IPriceHelper", "name": "", "type": "address"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {"inputs": [], "name": "renounceOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function"},
+    {
+        "inputs": [
+            {"internalType": "uint256", "name": "_nftIndex", "type": "uint256"},
+            {"internalType": "uint256", "name": "_amount", "type": "uint256"}
+        ],
+        "name": "repay",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "uint256", "name": "_nftIndex", "type": "uint256"}],
+        "name": "repurchase",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "address", "name": "newFeeTo", "type": "address"}],
+        "name": "setFeeTo",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "settings",
+        "outputs": [
+            {
+                "components": [
+                    {"internalType": "uint128", "name": "numerator", "type": "uint128"},
+                    {"internalType": "uint128", "name": "denominator", "type": "uint128"}
+                ],
+                "internalType": "struct NFTVault.Rate",
+                "name": "debtInterestApr",
+                "type": "tuple"
+            },
+            {
+                "components": [
+                    {"internalType": "uint128", "name": "numerator", "type": "uint128"},
+                    {"internalType": "uint128", "name": "denominator", "type": "uint128"}
+                ],
+                "internalType": "struct NFTVault.Rate",
+                "name": "creditLimitRate",
+                "type": "tuple"
+            },
+            {
+                "components": [
+                    {"internalType": "uint128", "name": "numerator", "type": "uint128"},
+                    {"internalType": "uint128", "name": "denominator", "type": "uint128"}
+                ],
+                "internalType": "struct NFTVault.Rate",
+                "name": "liquidationLimitRate",
+                "type": "tuple"
+            },
+            {
+                "components": [
+                    {"internalType": "uint128", "name": "numerator", "type": "uint128"},
+                    {"internalType": "uint128", "name": "denominator", "type": "uint128"}
+                ],
+                "internalType": "struct NFTVault.Rate",
+                "name": "organizationFeeRate",
+                "type": "tuple"
+            },
+            {
+                "components": [
+                    {"internalType": "uint128", "name": "numerator", "type": "uint128"},
+                    {"internalType": "uint128", "name": "denominator", "type": "uint128"}
+                ],
+                "internalType": "struct NFTVault.Rate",
+                "name": "insurancePurchaseRate",
+                "type": "tuple"
+            },
+            {
+                "components": [
+                    {"internalType": "uint128", "name": "numerator", "type": "uint128"},
+                    {"internalType": "uint128", "name": "denominator", "type": "uint128"}
+                ],
+                "internalType": "struct NFTVault.Rate",
+                "name": "insuranceLiquidationPenaltyRate",
+                "type": "tuple"
+            },
+            {"internalType": "uint256", "name": "insuranceRepurchaseTimeLimit", "type": "uint256"}
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "uint256", "name": "_nftIndex", "type": "uint256"}],
+        "name": "showPosition",
+        "outputs": [
+            {
+                "components": [
+                    {"internalType": "address", "name": "owner", "type": "address"},
+                    {"internalType": "uint256", "name": "nftIndex", "type": "uint256"},
+                    {"internalType": "uint256", "name": "nftValueUSD", "type": "uint256"},
+                    {
+                        "components": [
+                            {
+                                "components": [
+                                    {"internalType": "uint128", "name": "numerator", "type": "uint128"},
+                                    {"internalType": "uint128", "name": "denominator", "type": "uint128"}
+                                ],
+                                "internalType": "struct NFTVault.Rate",
+                                "name": "debtInterestApr",
+                                "type": "tuple"
+                            },
+                            {
+                                "components": [
+                                    {"internalType": "uint128", "name": "numerator", "type": "uint128"},
+                                    {"internalType": "uint128", "name": "denominator", "type": "uint128"}
+                                ],
+                                "internalType": "struct NFTVault.Rate",
+                                "name": "creditLimitRate",
+                                "type": "tuple"
+                            },
+                            {
+                                "components": [
+                                    {"internalType": "uint128", "name": "numerator", "type": "uint128"},
+                                    {"internalType": "uint128", "name": "denominator", "type": "uint128"}
+                                ],
+                                "internalType": "struct NFTVault.Rate",
+                                "name": "liquidationLimitRate",
+                                "type": "tuple"
+                            },
+                            {
+                                "components": [
+                                    {"internalType": "uint128", "name": "numerator", "type": "uint128"},
+                                    {"internalType": "uint128", "name": "denominator", "type": "uint128"}
+                                ],
+                                "internalType": "struct NFTVault.Rate",
+                                "name": "organizationFeeRate",
+                                "type": "tuple"
+                            },
+                            {
+                                "components": [
+                                    {"internalType": "uint128", "name": "numerator", "type": "uint128"},
+                                    {"internalType": "uint128", "name": "denominator", "type": "uint128"}
+                                ],
+                                "internalType": "struct NFTVault.Rate",
+                                "name": "insurancePurchaseRate",
+                                "type": "tuple"
+                            },
+                            {
+                                "components": [
+                                    {"internalType": "uint128", "name": "numerator", "type": "uint128"},
+                                    {"internalType": "uint128", "name": "denominator", "type": "uint128"}
+                                ],
+                                "internalType": "struct NFTVault.Rate",
+                                "name": "insuranceLiquidationPenaltyRate",
+                                "type": "tuple"
+                            },
+                            {"internalType": "uint256", "name": "insuranceRepurchaseTimeLimit", "type": "uint256"}
+                        ],
+                        "internalType": "struct NFTVault.VaultSettings",
+                        "name": "vaultSettings",
+                        "type": "tuple"
+                    },
+                    {"internalType": "uint256", "name": "creditLimit", "type": "uint256"},
+                    {"internalType": "uint256", "name": "debtPrincipal", "type": "uint256"},
+                    {"internalType": "uint256", "name": "debtPortion", "type": "uint256"},
+                    {"internalType": "uint256", "name": "debtInterest", "type": "uint256"},
+                    {"internalType": "uint256", "name": "liquidatedAt", "type": "uint256"},
+                    {"internalType": "enum NFTVault.BorrowType", "name": "borrowType", "type": "uint8"},
+                    {"internalType": "bool", "name": "liquidatable", "type": "bool"},
+                    {"internalType": "address", "name": "liquidator", "type": "address"}
+                ],
+                "internalType": "struct NFTVault.PositionPreview",
+                "name": "preview",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "tokenVault",
+        "outputs": [{"internalType": "contract ITokenVault", "name": "", "type": "address"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "totalDebtAccruedAt",
+        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "totalDebtAmount",
+        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "totalFeeCollected",
+        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "totalPositions",
+        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{"internalType": "address", "name": "newOwner", "type": "address"}],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]
